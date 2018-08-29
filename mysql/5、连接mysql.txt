@@ -1,0 +1,101 @@
+
+mysql安装后默认有一个root用户，可以先使用root用于登陆
+    mysql -u 用户名 -p
+    mysql -u root -p
+
+
+
+
+简单使用：
+    显示数据库
+        show databases;
+        自带数据库：
+            information_schema    mysql本身架构相关数据
+            mysql    用户权限相关数据
+
+    创建数据库
+        格式：
+            utf-8：create  database  数据库名  default  charset  utf8  collate  utf8_general_ci;
+            gbk：create  database  数据库名  default  charset  gbk  collate  utf8_chinese_ci;
+
+    使用数据库
+        格式：use 数据库名;
+
+    查看当前正在使用的数据库
+        select database();
+
+    显示当前数据库中的所有表
+        show tables;
+
+
+
+
+
+
+
+
+用户管理：
+    注意：需要使用root用户
+    创建用户
+        格式：create  user  '用户名'@'IP地址'  identified  by  '密码';
+        示例：
+            create  user  'sunck'@'10.0.122.158'  identified  by  'sunck1999';
+                允许10.0.122.158使用sunck用户登录
+            create  user  'sunck'@'10.0.122.%'  identified  by  'sunck1999';
+                允许10.0.122.*网段使用sunck用户登录
+            create  user  'sunck'@'%'  identified  by  'sunck1999';
+        查看：
+            use mysql;
+            select user,host from user;
+
+    删除用户：
+        dorp  user  '用户名'@'IP地址';
+    修改用户：
+        rename  user  '用户名'@'IP地址'  to  '新用户名'@'IP地址';
+    修改用户密码：
+        set password for '用户名'@'IP地址' = password('新密码');
+
+
+
+
+
+授权管理：需要root用户
+    查看权限：
+        show grants for '用户名'@'IP地址';
+    授权：
+        格式：
+            grant 权限 on 数据库.表 to '用户名'@'IP地址';
+
+        示例：
+            只能对axf数据库下的t1表进行查看和插入操作
+            grant select,insert on axf.t1 to 'sunck'@'%';
+            只能对axf数据库下的所有表进行查看和插入操作
+            grant select,insert on axf.* to 'sunck'@'%';
+            添加对axf数据库下所有表，添加grant以外的所有权限
+            grant all privileges on axf.* to 'sunck'@'%';
+
+    权限说明：详情见《权限说明.txt》
+
+    取消授权：
+        revoke 权限 on 数据库.表 from '用户名'@'IP地址';
+
+
+    将数据读取到内存，立即生效
+        flush privileges
+
+
+
+后期开发实际中的一些说明：
+    后期开发基本不会使用root用户，进入公司后，公司的DB人员会体用一个用户名和密码并说明权限
+
+
+
+
+配置阿里云的安全组协议
+
+修改mysql的配置
+    sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+    bind-address = 127.0.0.1 --->bind-address = 0.0.0.0
+
+

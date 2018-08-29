@@ -1,0 +1,39 @@
+连接
+
+创建数据库
+
+删除数据库
+
+建表
+
+删表
+
+建立关系
+
+查询
+
+SQL注释 
+    --空格
+
+转成SQL到文件
+
+命令实现转成SQL到文件
+    数据表结构+数据：
+    mysqldump -u用户名 -p密码 数据库名 > 转储文件名
+    数据表结构：
+    mysqldump -u用户名 -p密码 -d 数据库名 > 转储文件名
+
+    示例：
+    mysqldump -usunck -psunck1999 axf > axf.sql
+    mysqldump -usunck -psunck1999 -d axf > axf.sql
+
+将转成文件导入数据库
+    1、创建数据库
+    2、导入
+        mysql -u用户名 -p密码 数据库名 < 转储文件名
+
+
+
+
+
+
