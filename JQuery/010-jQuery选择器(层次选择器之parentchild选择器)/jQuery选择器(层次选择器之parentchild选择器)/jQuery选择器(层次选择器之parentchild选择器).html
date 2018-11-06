@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(层次选择器之parent>child选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+	<style type="text/css">
+		input{
+			margin:5px;			  /*设置input元素的外边距为5像素*/
+		}
+		.input{
+			font-size: 12pt;	/*设置文字大小*/
+			color: #333333;	    /*设置文字颜色*/
+			background-color:#cef;	/*设置背景颜色*/
+			border: 1px solid #000000;	/*设置边框*/
+		}
+	</style>
+</head>
+<body>
+	<form id="form1" name="form1" method="post" action="">
+	 	姓&nbsp;&nbsp;名：<input type="text" name="name" id="name" />
+	 	<br />
+	  	籍&nbsp;&nbsp;贯：<input name="native" type="text" id="native" />
+	  	<br />
+	 	生&nbsp;&nbsp;日：<input type="text" name="birthday" id="birthday" />
+	 	<br />
+	  	E-mail：<input type="text" name="email" id="email" />
+	  	<br />
+	  	<span>
+	  		<input type="button" name="change" id="change" value="换肤"/>
+	  	</span>
+	  	<input type="button" name="default" id="default" value="恢复默认"/>
+		<br /> 
+	</form>
+
+
+	<script type="text/javascript">
+
+		/*
+			parent > child选择器中的parent代表父元素，child代表子元素，用于在给定的父元素下匹配所有的子元素。使用该选择器只能选择父元素的直接子元素。
+
+			使用公式：$("parent > child")
+			parent是指任何有效的选择器。
+			child是用以匹配元素的选择器，并且它是parent元素的子元素。
+		 */
+
+		$(document).ready(function(){
+			$("#change").click(function(){
+				//为表单元素的直接子元素input添加样式		
+  		        $("form > input").addClass("input");		
+	        });
+			$("#default").click(function(){	
+				//移除为表单元素的直接子元素input添加的样式
+		  		$("form > input").removeClass("input");			
+			});
+		});
+		//说明：addClass()方法用于为元素添加CSS类，removeClass()方法用于移除为元素添加的CSS类 
+	</script>
+</body>
+</html>

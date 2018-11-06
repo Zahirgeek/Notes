@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(复制节点)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div>
+		<p>sunck is a good man!</p>
+		<p>sunck is a nice man!</p>
+	</div>
+
+	<script type="text/javascript">
+	    /*
+	    	复制节点
+
+	    	clone()：不带参数，用于克隆匹配的DOM元素并且园中这些克隆的副本
+
+	    	clone()：带布尔类型的参数，当年参数为true时，表示克隆匹配的元素以及其所有的事件处理程序并选中这些克隆的副本，当参数为false时，表示不复制元素的事件处理程序
+	     */
+
+
+		$(document).ready(function(){
+			$("div p:eq(1)").bind("click", function() {  	
+            	$(this).clone(true).insertAfter($(this));		     
+			});
+		});
+	</script>
+</body>
+</html>

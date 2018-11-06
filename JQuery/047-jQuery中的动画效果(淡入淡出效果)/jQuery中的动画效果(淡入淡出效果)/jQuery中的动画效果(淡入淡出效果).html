@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的动画效果(淡入淡出效果)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		#box{
+			width: 400px;height: 400px;background-color: red;display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<button id="button1">淡入</button>
+	<button id="button2">淡出</button>
+	<button id="button3">指定透明度</button>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#button1").bind('click', function(event) {
+				//fadeIn(speed, [callback])
+				//通过增大不透明度实现匹配元素淡入的效果
+				//speed：时间
+				//callback：可选参数，回调函数
+				$("#box").fadeIn(2000, function(){
+					console.log("淡入效果结束");
+				});
+			});
+
+			$("#button2").bind('click', function(event) {
+				//fadeOut(speed, [callback])
+				//通过减小不透明度实现匹配元素淡出的效果
+				//speed：时间
+				//callback：可选参数，回调函数
+				$("#box").fadeOut(2000, function(){
+					console.log("淡出效果结束");
+				});
+			});
+
+			$("#button3").bind('click', function(event) {
+				//fadeTo(speed, opacity, [callback])
+				//将匹配元素的不透明度1️⃣渐进的方式调整到指定的参数
+				//speed：时间
+				//opacity：指定不透明度
+				//callback：可选参数，回调函数
+				$("#box").fadeTo(2000, 0.15, function(){
+					console.log("指定效果结束");
+				});
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(基本选择器之类名选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		div{
+			border:1px solid #003a75;
+			background-color:#cef;
+			margin:5px; 
+			height:35px; 
+			width:75px;
+			float:left;
+			font-size:12px;
+			padding:5px;
+	   }
+	</style>
+</head>
+<body>
+	<div class="myClass">注意观察我的样式1</div>
+	<div class="myClass">注意观察我的样式2</div>
+	<div>我的样式是默认的</div>
+	<script type="text/javascript">
+		/*
+			类名选择器是通过元素拥有的CSS类的名称查找匹配的DOM元素。在一个页面中，一个元素可以有多个CSS类，一个CSS类又可以匹配多个元素，如果有元素中有一个匹配的类的名称就可以被类名选择器选取到。简单地说类名选择器就是以元素具有的CSS类名称查找匹配的元素。
+
+			使用公式：$(".class")
+		 */
+
+
+		$(document).ready(function(){
+			var $myClass = $(".myClass");
+			//利用css()方法可以为对应的div元素设定CSS属性值
+			//注意：类名选择器也可能会获取一组jQuery包装集，因为多个元素可以拥有同一个CSS样式 
+			$myClass.css("background-color","#C50210");	
+			$myClass.css("color","#FFF");
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(创建节点)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+		/*
+			1、创建元素节点：
+			$(html)：根据传入的HTML标记字符串，创建一个DOM对象，并且将这个DOM对象包装成一个jQuery对象后返回
+
+			2、创建文本节点：
+			在创建元素节点是直接把文本内容写出来，然后使用append()等方法将他们添加到文档中
+
+			3、创建属性节点
+			与创建文本节点类似，也是直接在创建元素节点是一起创建
+		 */
+
+
+		$(document).ready(function(){
+			var $jqP1 = $("<p></p>");
+			$("div").append($jqP1);
+
+			var $jqP2 = $("<p>sunck</p>");
+			$("div").append($jqP2);
+
+			var $jqP3 = $("<p title='good'>sunck</p>");
+			$("div").append($jqP3);
+		});
+	</script>
+</body>
+</html>

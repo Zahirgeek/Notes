@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的事件处理(阻止事件冒泡、阻止默认行为)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+	<style type="text/css">
+		#box{
+			width: 100px;height: 100px;background-color: red
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<input type="text" name="in" id="put" />
+	<a href="red.html" id="link">点我跳转</a>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").click(function(event) {
+				$(this).css("background-color", "yellow");
+			});
+
+			$("#box").click(function(event) {
+				$(this).css("background-color", "blue");
+				//阻止冒泡
+				event.stopPropagation();
+			});
+
+			$("#put").click(function(event){
+				event.stopPropagation();
+			});
+
+
+			$("#link").click(function(event){
+				var d = window.confirm("您访问的网站存在非法内容，确认访问?");
+				if (d === false) {
+					// //阻止冒泡
+					// event.stopPropagation();
+					// //阻止默认行为
+					// event.preventDefault();
+					
+
+
+					//如果想同时停止事件冒泡和浏览器默认行为，可以在事件处理程序中返回false
+					//这是同时调用stopPropagation()和preventDefault()方法的一种简要写法
+					return false;
+				}
+			});
+		});
+	</script>
+</body>
+</html>

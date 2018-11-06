@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(遍历节点)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<img height=60 src="images/01.jpg" width=80 />
+    <img height=60 src="images/02.jpg" width=80 />
+    <img height=60 src="images/03.jpg" width=80 />
+    <img height=60 src="images/04.jpg" width=80 />
+    <img height=60 src="images/05.jpg" width=80 />
+
+	<script type="text/javascript">
+		/*
+			each(callback)：callback是一个函数，该函数可以接收一个形参index，这个形参是遍历元素的序号
+		 */
+
+
+		$(document).ready(function(){
+
+			var $a = $("img")
+			$a.each(function(index){
+				$(this).attr("title", "第"+(index+1)+"张图片");
+			});
+
+			for (var i = 0; i < $a.length; i++){
+				console.log($a.get(i))
+			}
+
+
+		});
+	</script>
+</body>
+</html>

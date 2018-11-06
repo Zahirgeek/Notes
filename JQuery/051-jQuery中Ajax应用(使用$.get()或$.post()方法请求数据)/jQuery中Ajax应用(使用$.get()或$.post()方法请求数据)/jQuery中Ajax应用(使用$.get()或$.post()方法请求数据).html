@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中Ajax应用(使用$.get()或$.post()方法请求数据)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<form name="form" action="">
+		用户名：<input type="text" id="username" /><br/><br/>
+		内容：<textarea id="content"></textarea><br/><br/>
+		<input type="button" id="button" value="提交"/><br/><br/>
+		<div id="responseText"></div>
+	</form>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*
+				$.get()方法使用GET方式进行异步请求
+
+				$.get(url[, data][, callBack][, type])
+				url:请求的HTML页面的URL地址
+  				data：可选参数，发送到服务器的数据
+  				callback：可选参数。规定当请求成功时运行的函数。
+  				type：可选参数。预计的服务器响应的数据类型。默认地，jQuery将智能判断
+
+  				注意：与load()方法不同，回调函数只有当数据成功返回时才能被调用
+			 */
+			
+			/*
+				$.post()方法使用POST方式进行异步请求
+
+				$.post(url, [data], [callBack], [type])
+
+			 */
+			
+			// $("#button").click(function(){
+			// 	$.get("a.php", {username:$("#username").val(), content:$("#content").val()}, function(data,textStatus){
+			// 		// 将用户提交的用户名与留言内容显示
+			// 		$("#responseText").html("用户名："+data.username+"<br/>留言内容："+data.content);     
+			// 	}, "json");
+			// });
+
+
+			$("#button").click(function(){
+				$.post("b.php", {username:$("#username").val(), content:$("#content").val()}, function(data,textStatus){
+					// 将用户提交的用户名与留言内容显示
+					$("#responseText").html("用户名："+data.username+"<br/>留言内容："+data.content);     
+				}, "json");
+			});
+		});
+	</script>
+</body>
+</html>

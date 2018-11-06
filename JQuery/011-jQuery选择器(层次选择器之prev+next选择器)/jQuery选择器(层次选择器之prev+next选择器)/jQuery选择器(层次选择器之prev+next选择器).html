@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(层次选择器之prev+next选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	
+	<style type="text/css">
+		.background{
+			background:#cef
+		}
+		body{
+			font-size:12px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	    <label>第一个label</label>
+	    <p>第一个p</p>
+	    <p>第一个p2</p>
+	    <fieldset>
+	        <label>第二个label</label>
+	        <p>第二个p</p>
+	    </fieldset>
+	</div>
+	<p>div外面的p</p>
+
+	<script type="text/javascript">
+		/*
+			prev + next选择器用于匹配所有紧接在prev元素后的next元素。其中，prev和next是两个相同级别的元素。
+
+			使用公式：$("prev + next")
+			prev是指任何有效的选择器。
+			next是一个有效选择器并紧接着prev选择器。
+		 */
+
+
+		$(document).ready(function(){
+			$("label + p").addClass("background");
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对象和DOM对象</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div id="box" style="width: 100px;height: 100px;background-color: red"></div>
+	<script type="text/javascript">
+		//DOM对象
+		var jsDiv = document.getElementById("box");
+
+
+		//jQuery对象
+		//jQuery对象就是通过jQuery包装DOM对象后产生的对象
+		//jQuery对象是独有的，可以使用jQuery里的方法
+		//通常在变量前加上$
+		//注意：虽然jQuery对象是包装DOM对象后产生的，但是jQuery无法使用DOM对象的任何方法，同理DOM对象也不能使用jQuery里面的方法。
+		var $jqDiv = $("#box").html("sunck is a good man!");
+		
+
+
+
+		//jQuery对象和DOM对象的相互转换
+		
+		//1、jQuery对象转换成DOM对象
+		var jsDiv2 = $jqDiv[0];
+		var jsDiv3 = $jqDiv.get(0);
+
+		//2、DOM对象转换成jQuery对象
+		var $jqDiv2 = $(jsDiv);
+		
+
+
+	</script>
+</body>
+</html>

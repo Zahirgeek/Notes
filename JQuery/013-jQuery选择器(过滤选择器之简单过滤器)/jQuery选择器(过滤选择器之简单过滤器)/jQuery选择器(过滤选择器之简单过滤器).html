@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(过滤选择器之简单过滤器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+	<style type="text/css">
+		td{
+			font-size:12px;	
+			padding:3px;
+		}
+		.th{
+			background-color:#B6DF48;	
+			font-weight:bold;			
+			text-align:center;		
+		}
+		.even{
+			background-color:#E8F3D1;	
+		}
+		.odd{
+			background-color:#F9FCEF;	
+		}
+	</style>
+</head>
+<body>
+	<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#3F873B">
+    	  <tr>
+        	<td width="11%" height="27">编号</td>
+        	<td width="14%">祝福对象</td>
+        	<td width="12%">祝福者</td>
+        	<td width="33%">字条内容</td>
+        	<td width="30%">发送时间</td>
+      	</tr>
+      	<tr>
+        	<td height="27">1</td>
+        	<td>琦琦</td>
+        	<td>妈妈</td>
+        	<td>愿你健康快乐的成长！</td>
+        	<td>2014-08-15 13:06:06</td>
+      	</tr>
+      	<tr>
+        	<td height="27">2</td>
+        	<td>wgh</td>
+        	<td>无语</td>
+        	<td>每天有份好心情！</td>
+        	<td>2014-08-15 13:26:17</td>
+      	</tr>
+      	<tr>
+        	<td height="27">3</td>
+        	<td>轻鸿</td>
+        	<td>blue</td>
+        	<td>梦想，不论大小，都给它一个可以绽放的机会！</td>
+        	<td>2014-08-15 13:36:06</td>
+      	</tr>
+      	<tr>
+        	<td height="27">4</td>
+        	<td>sunck</td>
+        	<td>轻鸿</td>
+        	<td>明天会更好！</td>
+        	<td>2014-08-15 13:46:06</td>
+      	</tr>
+  	</table>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("tr:even").addClass("even");	//设置偶数行所用的CSS类
+			$("tr:odd").addClass("odd");	//设置奇数行所用的CSS类
+			$("tr:first").removeClass("even");	//移除even类
+			$("tr:first").addClass("th");	//添加th类
+		});
+	</script>
+</body>
+</html>

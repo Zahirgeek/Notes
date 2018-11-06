@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(层次选择器之ancestor descendant选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0px;
+		}
+		#bottom{
+			background-image:url(images/bg_bottom.jpg);	/*设置背景*/
+			width:800px;	/*设置宽度*/
+			height:58px;	/*设置高度*/
+			clear: both;	/*设置左右两侧无浮动内容*/
+			text-align:center;	/*设置居中对齐*/
+			padding-top:10px;	/*设置顶边距*/
+			font-size:9pt;	/*设置字体大小*/
+		}
+		.copyright{
+			color:#FFFFFF;	/*设置文字颜色*/
+			list-style:none;	/*不显示项目符号*/
+			line-height:20px;	/*设置行高*/
+		}
+	</style>
+</head>
+<body>
+	<div id="bottom">
+		<ul>
+			<li>技术服务热线：400-675-1066 传真：0431-84972266 企业邮箱：mingrisoft@mingrisoft.com</li>
+			<li>Copyright &copy; www.mrbccd.com All Rights Reserved! </li>
+		</ul>
+	</div>
+	<ul>
+		<li>技术服务热线：400-675-1066 传真：0431-84972266 企业邮箱：mingrisoft@mingrisoft.com</li>
+		<li>Copyright &copy; www.mrbccd.com All Rights Reserved! </li>
+	</ul>
+	
+	<script type="text/javascript">
+		/*
+			ancestor descendant选择器中的ancestor代表祖先，descendant代表子孙，用于在给定的祖先元素下匹配所有的后代元素。
+
+			使用公式：$("ancestor descendant")
+			ancestor是指任何有效的选择器。
+			descendant是用以匹配元素的选择器，并且它是ancestor所指定元素的后代元素。
+		 */
+
+
+		$(document).ready(function(){
+			$("div ul").addClass("copyright");
+		});
+		//说明：addClass()方法用于为元素添加CSS类
+	</script>
+</body>
+</html>

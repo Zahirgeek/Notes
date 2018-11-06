@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(基本选择器之元素选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		img{
+			border:1px solid #777;
+		}
+		div{
+			padding:5px;
+			font-size:12px;
+		}	
+	</style>
+</head>
+<body>
+	<div><img src="images/strawberry.jpg"/>这里种植了一棵草莓</div>
+	<div><img src="images/fish.jpg"/>这里养殖了一条鱼</div>
+	<input type="button" id="button" value="若干年后" />
+	<script type="text/javascript">
+
+
+		/*
+			元素选择器是根据元素名称匹配相应的元素。元素选择器指向的是DOM元素的标记名，也就是说元素选择器是根据元素的标记名选择的。
+
+			使用公式：$("element")
+		 */
+
+		$(document).ready(function(){
+			$("#button").click(function() {
+				$("div").eq(0).html("<img src='images/strawberry1.jpg'/>这里长出了一片草莓");	//获取第一个div元素
+			    $("div").get(1).innerHTML="<img src='images/fish1.jpg'/>这里的鱼没有了";	//获取第二个div元素
+			});
+		});
+		//在上面的代码中，使用元素选择器获取了一组div元素的jQuery包装集，它是一组Object对象，存储方式为[Object Object]，但是这种方式并不能显示出单独元素的文本信息，需要通过索引器来确定要选取哪个div元素，在这里分别使用了两个不同的索引器eq()和get()
+		//说明：在本实例中使用了两种方法设置元素的文本内容，html()方法是jQuery的方法，innerHTML方法是DOM对象的方法。
+		//注意：eq()方法返回的是一个jQuery包装集，所以它只能调用jQuery的方法，而get()方法返回的是一个DOM对象，所以它只能用DOM对象的方法。eq()方法与get()方法默认都是从0开始计数。$("#test").get(0)等效于$("#test")[0]。 
+
+	</script>
+</body>
+</html>

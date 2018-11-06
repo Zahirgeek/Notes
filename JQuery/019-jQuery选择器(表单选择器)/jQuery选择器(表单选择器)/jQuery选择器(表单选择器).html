@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(表单选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<form>
+	    复选框：<input type="checkbox"/>
+	    单选按钮：<input type="radio"/>
+	    图像域：<input type="image"/><br>
+	    文件域：<input type="file"/><br>
+	    密码域：<input type="password" width="150px"/><br>
+	    文本框：<input type="text" width="150px"/><br>
+	    按  钮：<input type="button" value="按钮"/><br>
+	    重  置：<input type="reset" value=""/><br>
+	    提  交：<input type="submit" value=""><br>
+	    隐藏域： <input type="hidden" value="这是隐藏的元素">
+	   <div id="testDiv"><font color="blue">隐藏域的值：</font></div>
+	</form>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//表单选择器是匹配经常在表单内出现的元素。但是匹配的元素不一定在表单中
+
+
+			//注意空格问题
+			// $(":input").css("background-color", "red");
+			// $("form :input").css("background-color", "red");
+			
+			//选中复选框
+		   	$(":checkbox").attr("checked","checked");
+		   	//选中单选框			
+		   	$(":radio").attr("checked","true");		
+		   	//设置图片路径				
+		   	$(":image").attr("src","images/fish1.jpg");	
+		   	//隐藏文件域			
+		   	$(":file").hide();				
+		   	//设置密码域的值					
+		   	$(":password").val("123");			
+		   	//设置文本框的值				
+		   	$(":text").val("文本框");			
+		   	//设置按钮不可用					
+		   	$(":button").attr("disabled","disabled");	
+		   	//设置重置按钮的值			
+		   	$(":reset").val("重置按钮");			
+		   	//设置提交按钮的值				
+		   	$(":submit").val("提交按钮");	
+		   	//显示隐藏域的值					
+		   	$("#testDiv").append($("input:hidden:eq(1)").val());		
+		});
+	</script>
+</body>
+</html>

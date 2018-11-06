@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器中的注意事项(含有空格)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div class="name">
+         <div style="display: none;">小科</div>
+         <div style="display: none;">小王</div>
+         <div style="display: none;">小张</div>
+         <div style="display: none;" class="name">小辛</div>
+     </div>
+     <div style="display: none;" class="name">小杨</div>
+     <div style="display: none;" class="name">小刘</div>
+
+	<script type="text/javascript">
+		//在实际应用当中，选择器中含有空格也是不容忽视的，多一个空格或者少一个空格也会得到截然不同的结果。
+
+
+		$(document).ready(function(){
+			//带空格的jQuery选择器  后代选择器
+			//选择class为“name”的元素之内的隐藏元素，也就是内容为小科、小王、小张、小辛的4个div元素
+			var $l_a = $(".name :hidden");
+
+			
+			//不带空格的jQuery选择器   过滤选择器
+			//获取隐藏的class为“name”的元素，即内容为小辛、小杨、小刘的div元素    
+         	var $l_b = $(".name:hidden");
+
+         	      
+         	var len_a = $l_a.length;
+         	var len_b = $l_b.length;
+         	console.log("$('.name :hidden') = " + len_a);  // 输出4
+         	console.log("$('.name:hidden')  = " + len_b);  // 输出3
+		});
+	</script>
+</body>
+</html>

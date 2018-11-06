@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中Ajax应用($.getScript()方法加载js文件)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<input type="button" id="btn" value="改变背景色"/>
+	<div class="mr">sunck is a good man</div>
+	<div class="mr">sunck is a nice man</div>
+
+	<script type="text/javascript">
+
+		/*
+			在jQuery中，通过全局函数$.getScript()加载JS文件后，不仅可以像加载HTML片段一样简单方便，而且JavaScript文件会自动执行，大大提高了页面的执行效率。
+
+			$.getScript(url, [callBack])
+		 */
+
+		$(document).ready(function(){
+			$.getScript("sunck.js", function(){
+				$("#btn").click(function(){
+					$(".mr").css("backgroundColor","lightblue");
+				});
+			});
+		});
+	</script>
+</body>
+</html>

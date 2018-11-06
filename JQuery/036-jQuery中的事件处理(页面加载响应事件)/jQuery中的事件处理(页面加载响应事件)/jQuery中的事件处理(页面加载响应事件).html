@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的事件处理(页面加载响应事件)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//事件模块中最重要的一个函数，它极大地提高了web响应速度
+		// $(document).ready(function(){
+
+		// });
+		
+
+		//可以简写
+		//当$()不带参数时默认就是document
+		// $().ready(function(){
+
+		// });
+
+		//还可以简写
+		$(function(){
+
+		});
+
+		/*
+		
+		 	$(document).ready()方法代替传统的window.onload()方法，不过两者之间还是有些细微的区别的
+			
+			1、在一个页面上可以无限制地使用$(document).ready()方法，各个方法间并不冲突，会按照在代码中的顺序依次执行。而window.onload()方法在一个页面中只能使用一次。
+
+			2、在一个文档完全下载到浏览器时（包括所有关联的文件，例如图片、横幅等）就会响应window.onload()方法。而$(document).ready()方法是在所有的DOM元素完全就绪以后就可以调用，不包括关联的文件。例如在页面上还有图片没有加载完毕但是DOM元素已经完全就绪，这样就会执行$(document).ready()方法，在相同条件下window.onload()方法是不会执行的，它会继续等待图片加载，直到图片及其他的关联文件都下载完毕时才执行。显然，把网页解析为DOM元素的速度要比把页面中的所有关联文件加载完毕的速度快得多。
+
+		 */
+
+
+
+		 /*
+		 	使用$(document).ready()方法时要注意一点，因为只要DOM元素就绪就可以执行该方法，所以可能出现元素的关联文件尚未下载完全的情况，例如与图片有关的DOM元素已经就绪，但是图片还没有加载完，若此时要获取图片的高度或宽度属性是未必会有效的。要解决这个问题，可以使用jQuery中的另一个关于页面加载的方法：load()方法。load()方法会在元素的onload事件中绑定一个处理函数，如果这个处理函数绑定到window对象上，则会在所有内容加载完毕后触发，如果绑定在元素上，则会在元素的内容加载完毕后触发。
+		  */
+		 // $(window).load(function() {
+
+		 // });
+		 // 等价下面代码
+		 // window.onload = function(){
+
+		 // };
+
+	</script>
+</body>
+</html>

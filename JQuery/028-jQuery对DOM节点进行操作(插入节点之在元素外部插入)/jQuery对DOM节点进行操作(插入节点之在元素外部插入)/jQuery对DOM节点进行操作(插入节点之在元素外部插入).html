@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(插入节点之在元素外部插入)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<p id="p">*************</p>
+
+	<script type="text/javascript">
+		/*
+			元素外部插入:将要添加的内容添加到元素之前或元素之后
+
+			after(content)：在每个匹配的元素之后插入内容
+
+			insertAfter(content)：将所有匹配的元素插入到另一个指定元素的元素集合的后面
+
+			before(content)：在每个匹配的元素之前插入内容
+
+			insertBefore(content)：把所有匹配的元素插入到另一个指定元素的元素集合的前面
+		 */
+
+		$(document).ready(function(){
+			var $p = $("#p");
+
+			var $p_1 = $("<p>sunck is a nice man</p>");
+			var $p_2 = $("<p>sunck is a good man</p>");
+			
+			$p.after($p_1);
+			$p_2.insertAfter($p);
+		});
+	</script>
+</body>
+</html>

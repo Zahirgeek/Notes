@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(替换节点)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	div1:
+	<div id="div1"></div>
+	div2:
+	<div id="div2"></div>
+
+	<script type="text/javascript">
+		/*
+			replaceAll(selector)：用于使匹配的元素替换掉所有selector匹配到的元素
+
+			replaceWith(content)：用于将所有匹配的元素替换成指定的HTML或DOM元素
+		 */
+
+
+		$(document).ready(function(){
+			$("#div1").replaceWith("<div>replaceWith()方法的替换结果</div>");
+			$(<"div>replaceAll()方法的替换结果</div>").replaceAll("#div2");
+		});
+	</script>
+</body>
+</html>

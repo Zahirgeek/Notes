@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中Ajax应用(load()方法)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<button id="button">请求数据</button>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*
+				异步加载数据
+				load(url, [data], [callback])
+
+				url：请求HTML页面的URL地址。
+ 				data：可选参数。发送至服务器的key:value数据。
+  				allback：可选参数。请求完成时的回调函数，无论请求是否成功
+			 */
+			
+			//1、载入HTML文档
+			// $("#button").click(function(){
+			// 	$("#box").load("sunck.html");
+			// });
+
+
+			//2、载入HTML文档中的指定元素
+			// $("#button").click(function(){
+			// 	$("#box").load("sunck.html .cl1");
+			// });
+
+
+			//3、传递方式(get、post)和回调参数
+			//load()方法的传递方式是根据传递的参数data来指定的。如果没有传递参数，默认采用GET方式传递，否则将自动转换为POST方式。
+			$("#button").click(function(){
+				$("#box").load("sunck.html", {x:"1", y:"2"}, function(responesText, status, XMLHttpRequest){
+						console.log(responesText, status, XMLHttpRequest);
+				});
+			});
+
+
+
+		});
+	</script>
+</body>
+</html>

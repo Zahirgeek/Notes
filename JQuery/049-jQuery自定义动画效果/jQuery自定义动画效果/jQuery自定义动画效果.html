@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery自定义动画效果</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div id="box" style="width: 100px;height: 100px;background-color: red;position: absolute;left:20px;top: 50px"></div>
+	<button id="button1">停止动画</button>
+	<button id="button2">判断元素是否在执行动画</button>
+	<script type="text/javascript">
+		/*
+			创建动画
+			animate(params, [speed], [callback])
+
+			params：表示一个包含属性和值的映射，可以同时包含多个属性，例如   {left:"200px",top:"100px"}
+			speed：表示动画运行的速度，参数规则同其他动画效果的speed一致，它是一个可选参数。
+  			callback：表示一个回调函数，当动画效果运行完毕后执行该回调函数，它也是一个可选参数
+
+			注意：
+			1、在使用animate()方法时，必须设置元素的定位属性position为relative或absolute，元素才能动起来。如果没有明确定义元素的定位属性，并试图使用animate()方法移动元素时，它们只会静止不动
+			2、在animate()方法中可以使用属性opacity来设置元素的透明度
+			3、如果在{left:“400px”}中的400px之前加上“+=”就表示在当前位置累加，“-=”就表示在当前位置累减
+		 */
+		
+		/*
+			停止动画
+			stop()方法也属于自定义动画函数，它会停止匹配元素正在运行的动画，并立即执行动画队列  中的下一个动画
+
+			stop(clearQueue,gotoEnd)
+  			clearQueue：表示是否清空尚未执行完的动画队列（值为true时表示清空动画队列）。
+  			gotoEnd：表示是否让正在执行的动画直接到达动画结束时的状态（值为true时表示直接到达动画结束时状态）
+
+  			注意：参数gotoEnd设置为true时，只能直接到达正在执行的动画的最终状态，并不能到达动画序列所设置的动画的最终状态。 
+		 */
+		
+
+		/*
+			延迟动画的执行
+			delay(时间)
+		 */
+		
+
+		/*
+			判断元素是否处于动画状态
+		 */
+
+		$(document).ready(function(){
+			$("#box").animate({left:"300px"}, 1000).delay(2000).animate({top:"400px", opacity:"0.5"}, 2000).animate({left:"-=100px"}, 3000);
+
+
+			$("#button1").click(function(){
+				$("#box").stop(true, true);
+			});
+
+			//判断元素是否处于动画状态
+			$("#button2").click(function(){
+				if ($("#box").is(":animated")) {
+					console.log("动画正在执行");
+				}
+			});
+		});
+	</script>
+</body>
+</html>

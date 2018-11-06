@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中Ajax应用(ajaxStart与ajaxStop全局事件)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div id="msg" style="display: none;">数据正在发送……</div>
+	<form id="testForm" action="">
+		用户名：<input type="text"  name="username"/><br/><br/>
+		性别：<input type="text"  name="sex"/><br/><br/>
+		年龄：<input type="text"  name="age"/><br/><br/>
+		邮箱：<input type="text"  name="email"/><br/><br/>
+		地址：<input type="text"  name="address"/><br/><br/>
+		内容：<textarea id="content" name="content"></textarea><br/><br/>
+		<input type="button" id="button" name="button" value="提交"/><br/><br/>
+		<div id="responseText"></div>
+	</form>
+
+	<script type="text/javascript">
+		/*
+			在jQuery当中使用Ajax获取异步数据时，会经常使用到ajaxStart和ajaxStop这两个全局事件。当请求开始时，会触发ajaxStart()方法的回调函数，往往用于编写一些准备性工作，例如提示“数据正在获取中……”；当请求结束时会触发ajaxStop()方法的回调函数，这一事件往往与前者相配合，说明请求的最后进展状态，例如网站中获取图片的速度较慢，在图片加载过程中可以给用户提供一些友好的提示和反馈信息，常用的提示信息为“图片加载中……”，待图片加载完毕后隐藏该提示。
+		 */
+
+		
+		$(document).ajaxStart(function(){
+			$("#msg").show(); 
+		});
+		$(document).ajaxStop(function(){
+			$("#msg").html("数据获取成功").slideUp(1000); 
+		});
+		$(document).ready(function(){
+			$("#button").click(function(){
+				$.ajax({type:"POST", url:"a.php", data:$("#testForm").serialize(), dataType:"json", success:function(data, textStatus){
+						var html = "";
+						html+="用户名："+data.username+"<br/>";
+						html+="性别："+data.sex+"<br/>";
+						html+="年龄："+data.age+"<br/>";
+						html+="邮箱："+data.email+"<br/>";
+						html+="地址："+data.address+"<br/>";
+						html+="内容："+data.content+"<br/>";
+						$("#responseText").html(html);
+				}});
+			});
+		});
+	</script>
+</body>
+</html>

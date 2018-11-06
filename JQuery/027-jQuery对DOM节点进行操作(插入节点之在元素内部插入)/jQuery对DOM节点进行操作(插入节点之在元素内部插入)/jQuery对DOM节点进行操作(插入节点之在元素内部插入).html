@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(插入节点之在元素内部插入)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div></div>
+
+	<script type="text/javascript">
+		/*
+			元素内容插入：向一个元素中添加子元素和内容
+
+			append(content)：为所有匹配的元素的内部追加内容
+
+			apendTo(content)：将所有匹配元素添加到另一个元素的元素集合中
+
+			prepend(content)：为所有匹配的元素的内部前置内容
+
+			prependTo(content)：将所有匹配元素前置到另一个元素的元素集合中
+		 */
+
+
+		$(document).ready(function(){
+			var $p_1 = $("<p>sunck is a good man</p>"); 
+			var $p_2 = $("<p>sunck is a nice man</p>"); 
+			$div = $("div"); 
+
+			        
+			$div.prepend($p_1);         
+			$p_2.prependTo($div);      
+		});
+	</script>
+</body>
+</html>

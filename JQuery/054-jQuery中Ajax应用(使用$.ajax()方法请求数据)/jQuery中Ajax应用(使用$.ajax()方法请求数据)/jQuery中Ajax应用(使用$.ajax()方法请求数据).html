@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中Ajax应用(使用$.ajax()方法请求数据)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<form name="form" action="">
+		用户名：<input type="text" id="username" /><br/><br/>
+		内容：<textarea id="content"></textarea><br/><br/>
+		<input type="button" id="button" value="提交"/><br/><br/>
+		<div id="responseText"></div>
+	</form>
+
+	<script type="text/javascript">
+		/*
+			除了可以使用全局性函数load()、$.get()、$.post()实现页面的异步调用和与服务器交互数据外，在jQuery中还有一个功能更为强大的最底层的方法$.ajax()，该方法不仅可以方便地实现上述三个全局函数完成的功能，而且可以更多地关注实现过程中的细节
+
+			$.ajax(options);
+			其中，参数options为$.ajax()方法中的请求设置，格式为key:value，既包含发送请求的参数，也含有服务器响应后回调的数据
+		 */
+		$(document).ready(function(){
+			$("#button").click(function(){
+				$.ajax({type:"GET", url:"a.php", data:{username:$("#username").val(),content:$("#content").val()}, dataType:"json", success:function(data,textStatus){
+						// 将用户提交的用户名与留言内容显示
+			    		$("#responseText").html("用户名："+data.username+"<br/>留言内容："+data.content);
+			  		}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

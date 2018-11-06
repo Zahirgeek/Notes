@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的动画效果(切换可见状态)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div>sunck is a good man!</div>
+	<div>sunck is a nice man!</div>
+	<button>切换状态</button>
+	<script type="text/javascript">
+		//使用toggle()方法可以实现切换元素的可见状态，也就是如果元素是可见的，切换为隐藏；如果元素是隐藏的，切换为可见的
+		
+		$(document).ready(function(){
+			$("button").bind("click", function(){
+				// $("div").toggle();
+				
+				//参数1：时间
+				//参数2：可选参数，回调函数
+				$("div").toggle(1000, function(){
+					console.log("切换结束");
+				});
+			});
+		});
+	</script>
+</body>
+</html>

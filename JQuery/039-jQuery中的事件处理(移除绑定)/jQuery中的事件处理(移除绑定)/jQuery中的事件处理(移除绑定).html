@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的事件处理(移除绑定)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<button id="button">添加一个p标签</button>
+	<div>
+		<p>第一个p标签</p>
+		<p>第二个p标签</p>
+		<p>第三个p标签</p>
+		<p>第四个p标签</p>
+		<p>第五个p标签</p>		
+	</div>
+
+
+	<script type="text/javascript">
+		/*
+			移除绑定：unbind([type], [data]);
+
+			type：可选参数，用于指定事件类型。
+			data：可选参数，用于指定要从每个匹配元素的事件中反绑定的事件处理函数。
+
+			说明：在unbind()方法中，两个参数都是可选的，如果不填参数，将会删除匹配元素上所有绑定的事件。
+		 */
+
+
+		$(document).ready(function(){
+			$("#button").click(function(event) {
+				$("div").append("<p>这是一个新的p标签</p>");
+			});
+
+
+			// $("div p").bind("click", function(event){
+			// 	console.log($(this).text());
+			// });
+			/*
+				unbind([type], [data]);
+				type：可选参数，用于指定事件类型。
+				data：可选参数，用于指定要从每个匹配元素的事件中反绑定的事件处理函数。
+				说明：在unbind()方法中，两个参数都是可选的，如果不填参数，将会删除匹配元素上所有绑定的事件。
+			 */
+			// $("div p").unbind("click");
+
+
+
+			// $("div").delegate("p", "click", function(event){
+			// 	console.log($(this).text());
+			// });
+			// $("div").undelegate("p", "click");
+
+
+
+
+		
+			// $("div").on("click", "p", function(){
+			// 	console.log($(this).text());
+			// });
+			// $("div").off("click", "p");
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(过滤选择器之可见性过滤器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<input type="text" value="显示的input元素">
+    <input type="text" value="我是不显示的input元素" style="display:none">
+    <input type="text" value="我是不显示的input2元素" style="visibility:hidden">
+	<input type="hidden" value="我是隐藏域">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//在应用:hidden过滤器时，display属性是none以及input元素的type属性为hidden的元素都会被匹配到
+
+			//取得显示的input的值
+			var visibleVal = $("input:visible").val();	
+			// var visibleVal = $("input:visible:eq(1)").val();
+			//取得隐藏的文本框的值
+			var hiddenVal1 = $("input:hidden:eq(0)").val();
+			//取得隐藏域的值	
+			var hiddenVal2 = $("input:hidden:eq(1)").val();	
+
+			alert(visibleVal+"\n\r"+hiddenVal1+"\n\r"+hiddenVal2);    	
+		});
+	</script>
+</body>
+</html>

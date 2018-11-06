@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(基本选择器之复合选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		.default{
+			border:1px solid #003a75;
+			background-color:yellow;
+			margin:5px; 
+			width:90px;
+			float:left;
+			font-size:12px;
+			padding:5px;
+		}
+		.change{
+			background-color:#C50210;
+			color:#FFF;
+		}
+	</style>
+</head>
+<body>
+	<p class="default">p元素</p>
+	<div class="default">div元素</div>
+	<span class="default" id="span">ID为span的元素</span>
+	<input type="button" id="button" value="为div元素和ID为span的元素换肤" />
+
+	<script type="text/javascript">
+		/*
+			复合选择器将多个选择器（可以是ID选择器、元素选择或是类名选择器）组合在一起，两个选择器之间以逗号“，”分隔，只要符合其中的任何一个筛选条件就会被匹配，返回的是一个集合形式的jQuery包装集，利用jQuery索引器可以取得集合中的jQuery对象。
+
+			注意：多种匹配条件的选择器并不是匹配同时满足这几个选择器的匹配条件的元素，而是将每个选择器匹配的元素合并后一起返回。
+
+			使用公式：$("select,selector2,……,selectorN")
+			selector1：一个有效的选择器，可以是ID选择器、元素选择器或是类名选择器等。
+			selector2：另一个有效的选择器，可以是ID选择器、元素选择器或是类名选择器等。
+			selectorN：（可选择）任意多个选择器，可以是ID选择器、元素选择器或是类名选择器等。
+			
+		 */
+
+
+
+		$(document).ready(function(){
+			$("#button").click(function(){ 
+				//注意：多种匹配条件的选择器并不是匹配同时满足这几个选择器的匹配条件的元素，而是将每个选择器匹配的元素合并后一起返回。
+				//说明：addClass()方法用于为元素添加CSS类
+		        $("div, #span").addClass("change");
+	        });
+		});
+	</script>
+</body>
+</html>

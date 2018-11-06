@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(过滤选择器之表单子元素过滤器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<ul>
+		<li>列表选项1</li>
+		<li>列表选项2</li>
+		<li>列表选项3</li>
+		<li>列表选项4</li>
+		<li>列表选项5</li>
+		<li>列表选项6</li>
+	</ul>
+	<ul>
+		<li>列表选项0</li>
+	</ul>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log($("ul li:first-child").html());
+			console.log($("ul li:last-child").html());
+			console.log($("ul li:only-child").html());
+			console.log($("ul li:nth-child(3)").html());
+		});
+	</script>
+</body>
+</html>

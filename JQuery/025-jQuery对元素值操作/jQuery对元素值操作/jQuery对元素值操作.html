@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对元素值操作</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<input type="text" value="123">
+	<input type="text" value="456">
+
+	<select name="like" size="3" multiple="multiple" id="like">
+  		<option>列表项1</option>
+  		<option selected="selected">列表项2</option>
+  		<option selected="selected">列表项3</option>
+	</select>
+
+	<script type="text/javascript">
+		/*
+			val()：用于获取第一个匹配元素的当前值，返回值可能是一个字符串，也可能是一个数组
+
+			val(val)：用于设置所有匹配元素的值
+
+			val(arrVal)：用于为check、select和radio等元素设置值，参数为字符串数组
+		 */
+
+
+		$(document).ready(function(){
+			console.log($("input").val());
+
+			$("input").val("789");
+
+			$("select").val(['列表项1','列表项2']);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(包裹节点)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<span>sunck is a good man</span>
+	<span>sunck is a nice man</span>
+	<span>sunck is a handsome man</span>
+	<span>sunck is a elegant man</span>
+
+	<button>包裹节点</button>
+	<button>去除包裹</button>
+	<button>整体包裹</button>
+	<button>包裹内部</button>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			//wrap() 
+			$("button:eq(0)").click(function(){
+				// 把匹配到每一个span标签用p标签包裹起来
+				$("span").wrap("<p></p>");
+			});
+
+			//unwrap()
+			$("button:eq(1)").click(function(){
+				// 把匹配到每一个span标签的父节点去除掉
+				$("span").unwrap();
+			});
+
+			//wrapAll()
+			$("button:eq(2)").click(function(){
+				$("span").wrapAll("<p></p>");
+			});
+
+			//wrapInner()
+			$("button:eq(3)").click(function(){
+				$("span").wrapInner("<b></b>");
+			});
+
+
+		});
+	</script>
+</body>
+</html>

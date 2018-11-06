@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对DOM节点进行操作(删除节点)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div>
+		<p>sunck is a good man!</p>
+		<p>sunck is a nice man!</p>
+	</div>
+
+	<script type="text/javascript">
+		/*
+			jQuery提供三种删除节点的方法
+
+			remove()：用于从DOM中删除所有匹配的元素，传入的参数用于根据jQuery表达式来筛选元素
+			注意：remove()方法删除某个几点之后，该节点所包含的所有后代节点将同时被删除。该方法的返回值是一个指向已被删除的节点的引用，以后也可以继续使用这些元素。
+
+			detach()：和remove()方法一样，也是删除DOM中匹配的元素，但是这个方法不会把匹配的元素从jQuery对象中删除，因此，在将来仍然可以使用这些匹配的元素。与remove()不同的是，所有绑定的时间或附加的数据都会保留下来。
+
+			empty()：该方法并不是删除节点，而是将节点清空，该方法可以清空元素中所有的后代节点。
+		 */
+
+
+
+		$(document).ready(function(){
+			//给p绑定事件
+			$("div p").click(function(){
+				alert($(this).text());
+			});
+
+
+
+			// remove()
+			// var $p2 = $("div p:eq(1)").remove();
+			// $("div").append($p2);
+			
+
+
+			// detach()
+			// var $p2 = $("div p:eq(1)").detach();
+			// $("div").append($p2);
+
+
+
+			// empty()
+			$("div p:eq(1)").empty();
+
+		});
+	</script>
+</body>
+</html>

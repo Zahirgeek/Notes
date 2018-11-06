@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器(基本选择器之ID选择器)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<input type="text" name="text" id="inp">
+	<button id="btn">显示</button>
+	<script type="text/javascript">
+
+		/*
+			ID选择器#id就是利用DOM元素的id属性值来筛选匹配的元素，并以jQuery包装集的形式返回给对象。
+
+			使用公式：$("#id")
+		 */
+
+
+
+		// 获取input标签中的value值
+		$(document).ready(function(){
+			//通过ID选择器找到button元素为其添加点击事件
+			$("#btn").click(function() {
+				//通过ID选择器找到input元素
+				//ID选择器是以“#id”的形式获取对象的，在这段代码中用$("#inp")获取了一个id属性值为inp的jQuery包装集，然后调用包装集的val()方法取得文本输入框的值。 
+				var str = $("#inp").val();
+				alert(str);
+			});
+		});
+		//jQuery中的ID选择器相当于传统的JavaScript中的document.getElementById()方法，jQuery用更简洁的代码实现了相同的功能。虽然两者都获取了指定的元素对象，但是两者调用的方法是不同的。利用JavaScript获取的对象是DOM对象，而使用jQuery获取的对象是jQuery对象。
+		
+	</script>
+</body>
+</html>

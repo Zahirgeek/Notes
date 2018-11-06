@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中Ajax应用($.getJSON()方法加载Json文件)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div id="json"></div>
+
+	<script type="text/javascript">
+		/*
+			$.getJSON(url, [callBack])
+		 */
+
+
+		$(document).ready(function(){
+			$.getJSON("test.json", function(data){
+				var htmlStr = "";
+				$.each(data, function(index, info){
+					htmlStr+="姓名："+info['name']+"<br/>";
+					htmlStr+="性别："+info['sex']+"<br/>";
+					htmlStr+="邮箱："+info['email']+"<br/><br/>";
+				});
+				$("#json").html(htmlStr);
+			});
+		});
+	</script>
+</body>
+</html>

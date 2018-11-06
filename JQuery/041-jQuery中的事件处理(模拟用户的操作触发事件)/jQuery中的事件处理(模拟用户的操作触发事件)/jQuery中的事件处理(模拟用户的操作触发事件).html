@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的事件处理(模拟用户的操作触发事件)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<button id="button">按钮</button>
+
+
+	<script type="text/javascript">
+		/*
+			TriggerHandle()和trigger()语法格式完全相同
+
+			区别：
+			TriggerHandle()不会导致浏览器同名的默认行为被执行
+			和trigger()会导致浏览器同名的默认行为的执行(可以通过返回false阻止默认行为)
+
+			注意：TriggerHandle()和和trigger()方法可以触发bind的自定义事件，并且还可以为事件传递参数。
+		 */
+
+		$(document).ready(function(){
+			$("#button").bind('click', function(event, msg1, msg2) {
+				console.log(msg1 + " " + msg2);
+			}).trigger("click", ["sunck", "good"]);
+		});
+	</script>
+</body>
+</html>

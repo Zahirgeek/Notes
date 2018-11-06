@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对元素的CSS样式操作(通过修改CSS类实现)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+	<style type="text/css">
+		.box{
+			width: 100px;height: 100px;background-color: red;
+		}
+		.change1{
+			background-color: yellow;
+		}
+		.change2{
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+
+	<script type="text/javascript">
+		/*
+			addClass(class)：为所有匹配的元素添加指定的CSS类名
+
+			removeClass(class)：从所有匹配的元素中删除全部或者指定的CSS类
+
+			toggleClass(class)：如果存在就删除一个CSS类，如果不存在就添加一个CSS类
+
+
+
+
+			toggleClass(class, switch)：如果switch参数为true则加上对应的CSS类，否则就删除。
+
+
+			注意：使用addClass()方法添加CSS类时，并不会删除现有的CSS类。同时，在使用以上方法时，其class参数都可以设置多个类名，类名与类名之间用空格分开。
+		 */
+
+
+		$(document).ready(function(){
+			$("div").addClass("change1 a b");
+			$("div").removeClass("change1");
+		});
+	</script>
+</body>
+</html>

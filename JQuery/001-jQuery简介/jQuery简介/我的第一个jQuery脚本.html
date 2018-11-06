@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的第一个jQuery脚本</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		这两种方法有什么区别?究竟哪种方法更好呢？
+		window.load()方法是在页面所有的内容都载入完毕后才会执行的，例如图片、横幅等。而$(document).ready()方法则是在DOM元素载入就绪后执行。在一个页面中可以放置多个$(document).ready()方法，而window.load()方法在页面上只允许放置一个（常规情况）。这两个方法可以同时在页面中执行，两者并不矛盾。不过，通过上述描述我们可以知道，$(document).ready()方法比window.load()方法载入速度更快。
+
+		 */
+		//实现在页面载入完毕后，弹出一下提示对话框
+		$(document).ready(function(){
+			alert("我的第一个jQuery脚本!!!");
+		});
+		// window.onload = function(){
+		// 	alert("我的第一个jQuery脚本!!!");
+		// };
+		// alert("我的第一个jQuery脚本2!!!");
+	</script>
+</body>
+</html>

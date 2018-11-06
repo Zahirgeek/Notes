@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的事件处理(事件对象)</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<button id="button">按钮</button>
+
+	<script type="text/javascript">
+		/*
+			通常情况下在不同浏览器中获取事件对象是比较困难的。针对这个问题，jQuery进行了必要的处理，使得在任何浏览器中都能轻松的获取事件对象以及事件对象的一些属性
+		 */
+
+		$(document).ready(function(){
+			//当单击“button”元素时，事件对象就被创建，该事件对象只有事件处理函数才可以访问到。事件处理函数执行完毕后，事件对象就被销毁了
+			$("#button").bind('click', function(event) {
+				console.log(event);
+
+				//获取事件的类型
+				console.log(event.type);
+
+				//获取到触发事件的元素
+				console.log(event.target);
+
+				/*
+				relatedTarget事件属性返回与事件的目标节点相关的节点。
+    			对于mouseover事件来说，该属性是鼠标指针移到目标节点上时所离开的那个节点。
+    			对于mouseout事件来说，该属性是离开目标时，鼠标指针进入的节点。
+    			对于其他类型的事件来说，这个属性是没有用的。
+
+				 */
+				console.log(event.relatedTarget);
+
+
+				//获取到光标相对于页面的x坐标和y坐标
+				//注意：若页面上 有滚动条，则要加上滚动条的宽度或高度
+				console.log(event.pageX, event.pageY);
+
+
+			});
+		});
+	</script>
+</body>
+</html>
